@@ -30,6 +30,40 @@
             </Setter>
         </Style>
 
+        <!-- Style pour les boutons de la liste des facultés -->
+        <Style x:Key="FaculteButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent"
+                        BorderBrush="Black"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter TargetName="border" Property="Background" Value="#007ACC"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter TargetName="border" Property="Background" Value="#005C99"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
         <!-- Style pour les éléments de la liste -->
         <Style x:Key="ListItemStyle" TargetType="ListBoxItem">
             <Setter Property="Padding" Value="5"/>
@@ -64,7 +98,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Gestion des Facultés" Style="{StaticResource TitleStyle}" Grid.Row="0"/>
+            <TextBlock Text="Gestion des Facultés" Style="{StaticResource TitleStyle}" Grid.Row="0" Foreground="Black"/>
 
             <Button Content="Créer Faculté" 
                     Style="{StaticResource ButtonStyle}" 
@@ -74,15 +108,15 @@
         </Grid>
 
         <!-- Liste des facultés -->
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Margin="0,69,0,0">
             <ListBox x:Name="FacultesListBox" 
                      ItemsSource="{Binding Facultes}" 
                      Margin="10" 
                      ItemContainerStyle="{StaticResource ListItemStyle}" 
-                     Height="327">
+                     Height="373" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Nom}" FontWeight="Bold" Margin="10" Click="Faculte_Click"/>
+                        <Button Content="{Binding Nom}" Style="{StaticResource FaculteButtonStyle}" Click="Faculte_Click"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

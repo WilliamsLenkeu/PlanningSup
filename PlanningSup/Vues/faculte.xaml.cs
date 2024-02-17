@@ -67,6 +67,13 @@ namespace PlanningSup.Vues
         // Méthode exécutée lors du clic sur "Créer Faculté"
         private void CreateFaculte_Click(object sender, RoutedEventArgs e)
         {
+            // Exécuter la méthode définie pour créer une faculté
+            CreateFaculte();
+        }
+
+        // Méthode pour créer une faculté
+        private void CreateFaculte()
+        {
             // Instancier la fenêtre formulaireFaculte
             formulaireFaculte formulaireFaculte = new formulaireFaculte();
 
@@ -76,10 +83,12 @@ namespace PlanningSup.Vues
 
             // Afficher la fenêtre formulaireFaculte de manière modale
             formulaireFaculte.Owner = mainWindow;
+            formulaireFaculte.Closed += (sender, eventArgs) =>
+            {
+                // Après la fermeture de la fenêtre formulaireFaculte, supprimer l'effet de flou du mainWindow
+                mainWindow.Effect = null;
+            };
             formulaireFaculte.ShowDialog();
-
-            // Après la fermeture de la fenêtre formulaireFaculte, supprimer l'effet de flou du mainWindow
-            mainWindow.Effect = null;
         }
 
         // Méthode exécutée lors du clic sur une faculté
@@ -93,8 +102,17 @@ namespace PlanningSup.Vues
                 // Créer une instance de la fenêtre DepartementWindow en passant la faculté sélectionnée en paramètre
                 DepartementWindow departementWindow = new DepartementWindow(faculte);
 
+                // Flouter le mainWindow
+                blurEffect.Radius = 10;
+                mainWindow.Effect = blurEffect;
+
                 // Afficher la fenêtre DepartementWindow de manière modale
                 departementWindow.Owner = mainWindow;
+                departementWindow.Closed += (closedSender, eventArgs) =>
+                {
+                    // Après la fermeture de la fenêtre des départements, supprimer l'effet de flou du mainWindow
+                    mainWindow.Effect = null;
+                };
                 departementWindow.ShowDialog();
             }
         }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Effects; // Ajout de l'espace de noms pour les effets visuels
 
 namespace PlanningSup.Vues
 {
@@ -10,23 +12,27 @@ namespace PlanningSup.Vues
         public ObservableCollection<DepartementItem> Departements { get; set; }
         private readonly string connectionString = "Server=localhost;Database=planningsup;Uid=root;Pwd=;";
 
+        private FaculteItem Faculte { get; set; }
+        private BlurEffect blurEffect; // Effet de flou
+
         public DepartementWindow(FaculteItem faculte)
         {
             InitializeComponent();
 
+            Faculte = faculte;
             Departements = new ObservableCollection<DepartementItem>();
             DataContext = this;
 
-            // Récupérer l'ID de la faculté à partir de son nom
             int faculteId = GetFaculteId(faculte.Nom);
-
-            // Récupérer les départements liés à la faculté sélectionnée
             GetDepartements(faculteId);
+
+            // Initialisation de l'effet de flou
+            blurEffect = new BlurEffect();
         }
 
         private int GetFaculteId(string nomFaculte)
         {
-            int faculteId = -1; // Valeur par défaut si aucune faculté trouvée
+            int faculteId = -1;
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -77,12 +83,45 @@ namespace PlanningSup.Vues
             }
         }
 
-        private void AjouterDepartement_Click(object sender, RoutedEventArgs e)
+        private void Departement_Click(object sender, RoutedEventArgs e)
         {
-            // Implémentez le code pour ajouter un département
+            DepartementItem departement = (sender as Button)?.DataContext as DepartementItem;
+
+            if (departement != null)
+            {
+                // Ouvrir une nouvelle fenêtre affichant les filières du département sélectionné
+                FiliereWindow filiereWindow = new FiliereWindow(departement);
+
+                // Appliquer un effet de flou à la fenêtre précédente
+                blurEffect.Radius = 10;
+                Effect = blurEffect;
+
+                filiereWindow.ShowDialog();
+
+                // Réinitialiser l'effet de flou après la fermeture de la fenêtre modale
+                Effect = null;
+            }
         }
 
-        // Modèle pour représenter un département
+        private void AjouterDepartement_Click(object sender, RoutedEventArgs e)
+        {
+            // Créer une instance de la fenêtre d'ajout de département et lui passer la faculté sélectionnée en paramètre
+            AjoutDepartementWindow ajoutDepartementWindow = new AjoutDepartementWindow(Faculte.Nom);
+
+            // Appliquer un effet de flou à la fenêtre précédente
+            blurEffect.Radius = 10;
+            Effect = blurEffect;
+
+            ajoutDepartementWindow.ShowDialog();
+
+            // Réinitialiser l'effet de flou après la fermeture de la fenêtre modale
+            Effect = null;
+
+            // Recharger la liste des départements après l'ajout
+            Departements.Clear();
+            GetDepartements(GetFaculteId(Faculte.Nom));
+        }
+
         public class DepartementItem
         {
             public string Nom { get; set; }

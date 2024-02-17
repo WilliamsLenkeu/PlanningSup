@@ -110,6 +110,9 @@
     <Compile Include="Vues\AjouterDepartementWindow.xaml.cs">
       <DependentUpon>AjouterDepartementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vues\AjouterFiliereWindow.xaml.cs">
+      <DependentUpon>AjouterFiliereWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\dashboard.xaml.cs">
       <DependentUpon>dashboard.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,9 @@
     </Compile>
     <Compile Include="Vues\faculte.xaml.cs">
       <DependentUpon>faculte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\FiliereWindow.xaml.cs">
+      <DependentUpon>FiliereWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vues\formulaireFaculte.xaml.cs">
       <DependentUpon>formulaireFaculte.xaml</DependentUpon>
@@ -168,6 +174,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vues\AjouterFiliereWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vues\dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vues\faculte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\FiliereWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
