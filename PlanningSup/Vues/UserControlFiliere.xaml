@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="PlanningSup.UserControlFiliere"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#F4F4F4">
+        <TextBlock Text="Liste des Filières" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20" FontWeight="Bold"/>
+        <ListBox x:Name="listeFiliere" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="20,50,20,20" Background="Transparent" BorderThickness="0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Background="White" BorderBrush="#CCCCCC" BorderThickness="0 0 0 1">
+                                    <TextBlock Text="{Binding}" Padding="10" Foreground="#333333" FontSize="16"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+</UserControl>

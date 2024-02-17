@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Media.Effects; // Ajout de l'espace de noms pour les effets de rendu
+using System.Windows.Controls;
+using System.Windows.Media.Effects;
 using MySql.Data.MySqlClient;
 using static PlanningSup.Vues.DepartementWindow;
 
@@ -100,6 +101,29 @@ namespace PlanningSup.Vues
         {
             // Supprimer l'effet de flou de la fenêtre principale
             this.Effect = null;
+        }
+
+        private void Filiere_Click(object sender, RoutedEventArgs e)
+        {
+            // Récupérer la filière sélectionnée
+            FiliereItem filiere = (sender as Button)?.DataContext as FiliereItem;
+
+            if (filiere != null)
+            {
+                // Appliquer l'effet de flou à la fenêtre parente
+                blurEffect = new BlurEffect();
+                blurEffect.Radius = 10;
+                this.Effect = blurEffect;
+
+                // Ouvrir une nouvelle fenêtre pour afficher les informations de la filière
+                AfficherFiliereWindow afficherFiliereWindow = new AfficherFiliereWindow(filiere);
+                afficherFiliereWindow.Closed += (s, args) =>
+                {
+                    // Supprimer l'effet de flou de la fenêtre parente après la fermeture de la nouvelle fenêtre
+                    this.Effect = null;
+                };
+                afficherFiliereWindow.ShowDialog();
+            }
         }
 
         public class FiliereItem

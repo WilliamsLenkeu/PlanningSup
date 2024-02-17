@@ -15,10 +15,12 @@ namespace PlanningSup
             PlagesCours,
             Enseignants,
             Etablissements,
-            PlagesHoraires
+            PlagesHoraires,
+            UE
         }
 
         private string connectionString = "Server=localhost;Database=planningsup;Uid=root;Pwd=;";
+        private string mat;
 
         public string ObtenirNomUtilisateur(string matricule)
         {
@@ -59,6 +61,7 @@ namespace PlanningSup
             InitializeComponent();
 
             string matricule = mat;
+            mat = mat;
             // Mettre à jour le message de bienvenue avec le nom de l'utilisateur
             string nomUtilisateur = ObtenirNomUtilisateur(matricule);
             MessageBienvenue.Text = "Bienvenue, " + nomUtilisateur;
@@ -104,6 +107,18 @@ namespace PlanningSup
             UpdateButtonStyles();
         }
 
+        private void CoursPropose_Click(object sender, RoutedEventArgs e)
+        {
+            ShowCoursPropose();
+        }
+
+        private void UE_Click(object sender, RoutedEventArgs e)
+        {
+            activeTab = ActiveTab.UE;
+            ShowUE();
+            UpdateButtonStyles();
+        }
+
         // Ajoutez des déclencheurs pour les autres boutons
         // ...
 
@@ -117,6 +132,12 @@ namespace PlanningSup
         {
             // Logique pour afficher le User Control des plages de cours
             bordure_Principale.Child = new PlagesCours();
+        }
+
+        private void ShowUE()
+        {
+            // Logique pour afficher le User Control des plages de cours
+            bordure_Principale.Child = new ueView();
         }
 
         private void ShowEnseignants()
@@ -133,6 +154,15 @@ namespace PlanningSup
             Faculte faculteView = new Faculte(this);
             // Afficher le User Control des enseignants
             bordure_Principale.Child = faculteView;
+        }
+
+        private void ShowCoursPropose() 
+        {
+            // Logique pour afficher le User Control des établissements
+            string nom = ObtenirNomUtilisateur(mat);
+            ProposVue ProposView = new ProposVue(nom) ;
+            // Afficher le User Control des enseignants
+            bordure_Principale.Child = ProposView;
         }
 
         private void ShowPlagesHoraires()

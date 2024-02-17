@@ -88,6 +88,11 @@ namespace PlanningSup.Vues
             // Désactiver l'effet de flou une fois que la fenêtre de détails est fermée
             RemoveBlurEffect();
         }
+
+        private void EnseignantsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class EnseignantItem

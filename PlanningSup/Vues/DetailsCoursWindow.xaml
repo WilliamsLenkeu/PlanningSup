@@ -1,0 +1,17 @@
+﻿<Window x:Class="PlanningSup.Vues.DetailsCoursWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Détails du Cours" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="{Binding Jour}" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="{Binding HeureDebut}" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding HeureFin}" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding CodeUE}" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding LibelleUE}" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding NomEnseignant}" Margin="0,5,0,0"/>
+            <Label x:Name="lblMatricule" Content="Matricule de l'enseignant : " Margin="0,5,0,0"/>
+            <Button Content="Valider le Cours" Click="ValiderLeCours_Click" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -5,8 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlanningSup"
         mc:Ignorable="d"
-        Title="home_enseignant" Height="450" Width="800">
-    <Grid>
-        
+        Title="home_enseignant" Height="750" Width="1200" ResizeMode="NoResize">
+    <Window.Resources>
+        <!-- Style pour les textes -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="background" Background="#F4F4F4">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Navbar -->
+            <Border x:Name="navbar" BorderBrush="#333" BorderThickness="1" CornerRadius="10" Margin="0,0,10,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/OIG (2).jpeg" Stretch="UniformToFill" Opacity="0.7"/>
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Logo ou Titre -->
+                    <TextBlock Margin="0,10,0,10" Foreground="White" FontSize="18" FontWeight="Bold" Text="PlanningSup 📚" Background="#FF565656" FontFamily="Cascadia Code"/>
+
+                    <!-- Liens de navigation pour l'administrateur -->
+                    <StackPanel Grid.Row="1" Margin="10,0,0,0">
+                        <Button x:Name="Home" Content="Dashboard" Margin="0,10,0,0" Height="36" Click="Home_Click" Background="#FF565656" BorderBrush="{x:Null}" FontWeight="Bold" Foreground="White" FontFamily="Cascadia Code" FontSize="14">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#666"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#888"/>
+                                            <Setter Property="Foreground" Value="Yellow"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <Button x:Name="Etablissements" Content="Rejoindre un cours 🏫" Height="36" Click="Cours_Click" Margin="0,10,0,0" Background="#FF565656" BorderBrush="{x:Null}" FontWeight="Bold" Foreground="White" FontFamily="Cascadia Code" FontSize="14">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#666"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#888"/>
+                                            <Setter Property="Foreground" Value="Yellow"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="1" x:Name="MessageBienvenue" Margin="0,452,0,-252" Foreground="White" FontWeight="Bold" Background="#FF565656" TextAlignment="Center" FontSize="14" FontFamily="Cascadia Code"/>
+
+                    <!-- Bouton de déconnexion -->
+                    <Button x:Name="Deconnexion" Content="Déconnexion" Click="Deconnexion_Click" Height="36" Margin="0,491,0,-297" Background="#FF565656" BorderBrush="{x:Null}" FontWeight="Bold" Foreground="White" Grid.Row="1" FontFamily="Cascadia Code" FontSize="14">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#666"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#888"/>
+                                        <Setter Property="Foreground" Value="Yellow"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Contenu principal -->
+            <Border x:Name="bordure_Principale" BorderBrush="#333" BorderThickness="1" Grid.Column="1" Background="White" CornerRadius="10"/>
+        </Grid>
     </Grid>
 </Window>

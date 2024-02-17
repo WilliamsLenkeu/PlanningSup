@@ -7,6 +7,7 @@
         <Style TargetType="TextBlock" x:Key="LabelStyle">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="0 10"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
         </Style>
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="FontSize" Value="16"/>
@@ -15,6 +16,7 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="#CCCCCC"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
         </Style>
         <Style TargetType="Button" x:Key="ButtonStyle">
             <Setter Property="FontSize" Value="16"/>
@@ -24,6 +26,7 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
         </Style>
     </Window.Resources>
     <Grid Margin="20">

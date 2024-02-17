@@ -6,6 +6,32 @@
         xmlns:local="clr-namespace:PlanningSup.Vues"
         mc:Ignorable="d"
         Title="Formulaire de création de faculté" Height="300" Width="400">
+    <Window.Resources>
+        <!-- Style pour les labels -->
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
+        </Style>
+
+        <!-- Style pour les textboxes -->
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
+        </Style>
+
+        <!-- Style pour les boutons -->
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Cascadia Mono"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,14 +42,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Nom de la faculté :" Grid.Row="0" Margin="10"/>
-        <TextBox Grid.Row="1" Margin="10" x:Name="NomFaculteTextBox"/>
+        <Label Content="Nom de la faculté :" Grid.Row="0"/>
+        <TextBox Grid.Row="1" x:Name="NomFaculteTextBox"/>
 
         <!-- Ajoutez ici d'autres éléments de formulaire au besoin -->
 
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Valider" Margin="5" Click="Valider_Click"/>
-            <Button Content="Annuler" Margin="5" Click="Annuler_Click"/>
+            <Button Content="Valider" Click="Valider_Click"/>
+            <Button Content="Annuler" Click="Annuler_Click"/>
         </StackPanel>
     </Grid>
 </Window>

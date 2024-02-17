@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -107,17 +122,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vues\AfficherFiliereWindow.xaml.cs">
+      <DependentUpon>AfficherFiliereWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\AjouterDepartementWindow.xaml.cs">
       <DependentUpon>AjouterDepartementWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vues\AjouterFiliereWindow.xaml.cs">
       <DependentUpon>AjouterFiliereWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vues\AjouterUEWindow.xaml.cs">
+      <DependentUpon>AjouterUEWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\dashboard.xaml.cs">
       <DependentUpon>dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vues\DepartementWindow.xaml.cs">
       <DependentUpon>DepartementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\DetailsCoursWindow.xaml.cs">
+      <DependentUpon>DetailsCoursWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vues\Enseignant.xaml.cs">
       <DependentUpon>Enseignant.xaml</DependentUpon>
@@ -134,8 +158,23 @@
     <Compile Include="Vues\PlagesCours.xaml.cs">
       <DependentUpon>PlagesCours.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vues\ProposerCoursWindow.xaml.cs">
+      <DependentUpon>ProposerCoursWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ProposVue.xaml.cs">
+      <DependentUpon>ProposVue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\TeacherDetailsWindow.xaml.cs">
       <DependentUpon>TeacherDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ueView.xaml.cs">
+      <DependentUpon>ueView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\UserControlCours.xaml.cs">
+      <DependentUpon>UserControlCours.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\UserControlFiliere.xaml.cs">
+      <DependentUpon>UserControlFiliere.xaml</DependentUpon>
     </Compile>
     <Page Include="home_administrateur.xaml">
       <SubType>Designer</SubType>
@@ -170,6 +209,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vues\AfficherFiliereWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vues\AjouterDepartementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,11 +221,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vues\AjouterUEWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vues\dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vues\DepartementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\DetailsCoursWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,7 +257,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vues\ProposerCoursWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ProposVue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vues\TeacherDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ueView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\UserControlCours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\UserControlFiliere.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,6 +312,17 @@
   <ItemGroup>
     <Resource Include="OIG %282%29.jpeg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

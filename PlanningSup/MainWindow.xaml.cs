@@ -310,7 +310,7 @@ namespace PlanningSup
                                 home_administrateur.Show();
                                 break;
                             case "Enseignant":
-                                home_enseignant home_enseignant = new home_enseignant();
+                                home_enseignant home_enseignant = new home_enseignant(mat);
                                 home_enseignant.Show();
                                 break;
                             case "Étudiant":
