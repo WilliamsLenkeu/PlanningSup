@@ -32,4 +32,8 @@ Bienvenue dans l'application de gestion de planning universitaire ! Cette applic
 3. **Gestion des enseignants**: Dans la section "Enseignants", vous pouvez gérer les détails des enseignants.
 5. **Consultation du planning**: Visualisez le planning dans la section "Planning", avec des options de filtrage et de recherche.
 
+## Développeur
+
+Si vous souhaitez consultez le code source vous pouvez cloné le dépôt par ce lien :"https://github.com/WilliamsLenkeu/PlanningSup.git"
+
 Nous espérons que cette application vous sera utile dans la gestion de vos plannings universitaires ! Merci de l'utiliser. 😊
